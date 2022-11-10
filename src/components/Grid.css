@@ -14,7 +14,6 @@
   display: block;
   width: var(--board-size);
   height: var(--board-size);
-  background: red;
 }
 
 .GridCellsContainer {

@@ -1,25 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GameContext } from 'src/contexts/GameContext'
 import './Grid.css'
 import { GridCell } from './GridCell'
 
-interface GridProps {
-  gridSize: number
-}
-
-export const Grid = ({ gridSize }: GridProps) => {
+export const Grid = () => {
+  const {
+    gameData: { gridSize },
+  } = useContext(GameContext)
   const gridCells = new Array(gridSize * gridSize).fill(undefined)
-
-  console.log('====================================')
-  console.log(gridSize)
-  console.log(gridCells)
-  console.log('====================================')
 
   return (
     <section className="Grid">
       <div className="GridBoard">
         <div className="GridCellsContainer">
           {gridCells.map((_, i) => {
-            return <GridCell key={i} index={i} gridSize={gridSize} />
+            return <GridCell key={i} index={i} />
           })}
         </div>
       </div>

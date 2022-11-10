@@ -1,3 +1,26 @@
 :root {
   --board-size: min(75vw, 75vh);
+  --grid-size: 3;
+  --cell-size: calc(var(--board-size) / var(--grid-size));
+  --cell-color: #f4ed00;
+  --cell-hover-color: #aef044;
+  --cell-x-color: #ec4b57;
+  --cell-o-color: #00ffd2;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+input,
+button {
+  appearance: none;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: #fff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }

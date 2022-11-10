@@ -1,14 +1,61 @@
 .GridCell {
   position: relative;
+  border: calc(var(--cell-size) / 25) solid rgba(0, 0, 0, 0);
 }
 
-.GridCell::after {
-  content: '';
-  border: 1px solid blue;
-  position: absolute;
+.GridCellInner {
   width: 100%;
   height: 100%;
+  background: var(--cell-color);
+  border-radius: 10%;
+}
+
+.GridCell:not(.GridCell__selected):hover:after {
+  content: '';
+  position: absolute;
+  width: 10%;
+  height: 10%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 100%;
+  background: var(--cell-hover-color);
+  pointer-events: none;
+}
+
+.GridCell::before,
+.GridCell::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.GridCell__selected--x::before,
+.GridCell__selected--x::after {
+  width: calc(var(--cell-size) / 2);
+  height: calc(var(--cell-size) / 10);
+  background: var(--cell-x-color);
+  border-radius: 999px;
+}
+
+.GridCell__selected--x::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.GridCell__selected--x::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.GridCell__selected--o::before,
+.GridCell__selected--o::after {
+  width: calc(var(--cell-size) / 2);
+  height: calc(var(--cell-size) / 2);
+  border-radius: 100%;
+  border: calc(var(--cell-size) / 10) solid var(--cell-o-color);
 }

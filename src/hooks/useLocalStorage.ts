@@ -23,7 +23,7 @@ const setLocalStorageValue = (name: string, value: Value) => {
   }
 }
 
-export const useLocalStorage = <T extends Value>(
+export const useLocalStorage = <T extends any>(
   name: string,
   defaultValue?: T,
 ) => {
